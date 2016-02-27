@@ -14,8 +14,9 @@
  */
 #include "ssp.h"
 #include <linux/fs.h>
+#ifdef CONFIG_SEC_DEBUG
 #include <mach/sec_debug.h>
-
+#endif
 
 
 #define SSP_DEBUG_TIMER_SEC		(10 * HZ)
@@ -452,8 +453,10 @@ int initialize_debug_timer(struct ssp_data *data)
 
 unsigned int  ssp_check_sec_dump_mode()   // if returns true dump mode on
 {
+#ifdef CONFIG_SEC_DEBUG
 	if (sec_debug_level.en.kernel_fault == 1)
 		return 1;
 	else
+#endif
 		return 0;
 }

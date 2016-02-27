@@ -460,6 +460,7 @@ static int exynos5410_pm_domain_init(void)
 		exynos_pm_add_reg(&exynos54xx_pd_mfc, EXYNOS_PROCESS_BEFORE, EXYNOS_PROCESS_ONOFF,
 				exynos54xx_pwr_reg_mfc[i], 0);
 #endif
+#if defined(CONFIG_MALI_T6XX) || defined(CONFIG_MALI_MIDGARD_WK04) || defined(CONFIG_MALI_T6XX_R7P0)
 	exynos_pm_add_platdev(&exynos54xx_pd_g3d, &exynos5_device_g3d);
 	exynos_pm_add_clk(&exynos54xx_pd_g3d, NULL, "sgx_core");
 	exynos_pm_add_clk(&exynos54xx_pd_g3d, NULL, "sgx_hyd");
@@ -471,6 +472,7 @@ static int exynos5410_pm_domain_init(void)
 	for (i = 0; i < ARRAY_SIZE(exynos54xx_pwr_reg_g3d); ++i)
 		exynos_pm_add_reg(&exynos54xx_pd_g3d, EXYNOS_PROCESS_BEFORE, EXYNOS_PROCESS_ONOFF,
 				exynos54xx_pwr_reg_g3d[i], 0);
+#endif
 #ifdef CONFIG_SND_SAMSUNG_I2S
 	exynos_pm_add_platdev(&exynos54xx_pd_maudio, &exynos5_device_i2s0);
 	exynos_pm_add_clk(&exynos54xx_pd_maudio, &exynos5_device_i2s1.dev, "iis");

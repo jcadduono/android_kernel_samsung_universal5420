@@ -18,6 +18,7 @@
 #include <linux/sched.h>
 #include <linux/workqueue.h>
 #include <linux/pm_runtime.h>
+#include <linux/ratelimit.h>
 #include <linux/diagchar.h>
 #include <linux/delay.h>
 #include <linux/reboot.h>

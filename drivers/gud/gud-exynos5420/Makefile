@@ -1,7 +1,7 @@
 #
 # Makefile for the kernel mobicore drivers for Exynos5420
 #
-GUD_ROOT_FOLDER := drivers/gud/gud-exynos5420
+GUD_ROOT_FOLDER := $(srctree)/drivers/gud/gud-exynos5420
 # add our modules to kernel.
 obj-$(CONFIG_MOBICORE_API) += mcKernelApi.o
 obj-$(CONFIG_MOBICORE_DRIVER) += mcDrvModule.o
@@ -25,8 +25,8 @@ ccflags-y += -Wno-declaration-after-statement
 ccflags-$(CONFIG_MOBICORE_DEBUG) += -DDEBUG
 ccflags-$(CONFIG_MOBICORE_VERBOSE) += -DDEBUG_VERBOSE
 
-# Choose one platform from the folder
-MOBICORE_PLATFORM := $(shell (ls -1 $(GUD_ROOT_FOLDER)/MobiCoreDriver/platforms | tail -1) )
+MOBICORE_PLATFORM := EXYNOS_5420_STD
+
 # Use the available platform folder
 ccflags-y += -I$(GUD_ROOT_FOLDER)/MobiCoreDriver/platforms/$(MOBICORE_PLATFORM)
 # MobiCore Driver includes

@@ -12,8 +12,12 @@ ifeq ($(CONFIG_SOC_EXYNOS4415), y)
 EXYNOS_SOC := exynos4415
 endif
 
+ifeq ($(CONFIG_SOC_EXYNOS5420), y)
+EXYNOS_SOC := exynos5420
+endif
+
 # MobiCore kernel driver path
-GUD_ROOT_FOLDER := drivers/gud/gud-$(EXYNOS_SOC)
+GUD_ROOT_FOLDER := $(srctree)/drivers/gud/gud-$(EXYNOS_SOC)
 
 # Includes MobiCore kernel driver
 ccflags-y += -I$(GUD_ROOT_FOLDER)/MobiCoreDriver

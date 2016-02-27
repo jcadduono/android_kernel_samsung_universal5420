@@ -126,28 +126,24 @@ MACH_SMDK4212 || MACH_SMDK5250 || MACH_SMDK5410 || MACH_SMDK5420)
 config SND_SAMSUNG_UHQA
 	bool "High Quality Audio Support"
 	depends on SND_SAMSUNG_I2S
-	default y
 	help
 	   Say Y if you want to add support for High Quality audio
 
 menuconfig SND_SAMSUNG_USE_IDMA
 	bool "Lower power audio support"
 	depends on SND_SAMSUNG_I2S && (ARCH_EXYNOS4 || ARCH_EXYNOS5)
-	default y
 	help
 	  Say Y if you want to enable internal dma.
 
 config SND_SAMSUNG_ALP
 	bool "Advanced Low Power audio support with SRP core"
 	depends on SND_SAMSUNG_USE_IDMA
-	default y
 	help
 	  Say Y if you want to support ALP audio.
 
 config SND_SAMSUNG_USE_IDMA_DRAM
 	bool "IDMA use dram"
 	depends on SND_SAMSUNG_USE_IDMA && SND_SAMSUNG_UHQA
-	default y
 	help
 	  Say Y if you want to use dram area on internal dma
 	  for Low Power mode at High Quality audio.

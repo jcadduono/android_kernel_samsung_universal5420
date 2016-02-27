@@ -34,6 +34,7 @@
 #include <linux/bootmem.h>
 #include <linux/hash.h>
 #include <linux/pid_namespace.h>
+#include <linux/proc_fs.h>
 #include <linux/init_task.h>
 #include <linux/syscalls.h>
 
